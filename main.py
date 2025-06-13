@@ -69,3 +69,10 @@ def generate_summary(prompt_type, data):
     response = llm(prompt)
     return response  
   return "Error: No data provided."  
+
+#visulization function
+def create_visuals(data, title):  
+    if data is not None:  
+        st.subheader(title)  
+        st.write(data)  
+        st.line_chart(data.select_dtypes (include=['number']))  
