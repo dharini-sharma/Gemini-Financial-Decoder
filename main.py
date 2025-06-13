@@ -54,3 +54,18 @@ def load_file(file):
             return pd.read_csv(file)
         
     return None
+
+#Generate Summary from Templates 
+
+def generate_summary(prompt_type, data):  
+  if data is not None:  
+    data_dict = data.to_dict()  
+    if prompt_type == "balance_sheet":  
+      prompt = prompt_templates [prompt_type].format(balance_sheet_data=data_dict)  
+    elif prompt_type == "profit_loss":  
+      prompt = prompt_templates [prompt_type].format(profit_loss_data=data_dict)  
+    elif prompt_type == "cash_flow":  
+      prompt = prompt_templates [prompt_type].format(cash_flow_data=data_dict)  
+    response = llm(prompt)
+    return response  
+  return "Error: No data provided."  
