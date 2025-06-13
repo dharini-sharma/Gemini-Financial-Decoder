@@ -75,4 +75,31 @@ def create_visuals(data, title):
     if data is not None:  
         st.subheader(title)  
         st.write(data)  
-        st.line_chart(data.select_dtypes (include=['number']))  
+        st.line_chart(data.select_dtypes (include=['number']))
+
+#App title and file uploads
+st.title("Gemini Pro Financial Decoder")
+balance_sheet_file, profit_loss_file, cash_flow_file = upload_file()
+
+#Button to generate reports
+if st.button("Generate Reports"):
+  with st.spinner("Generating summaries and visualizations..."):
+    balance_sheet_data = load_file(balance_sheet_file)
+    profit_loss_data = load_file(profit_loss_file)
+    cash_flow_data = load_file(cash_flow_file)
+  #Generate summaries and create visualizations
+  balance_sheet_summary = generate_summary("balance_sheet", balance_sheet_data)
+  profit_loss_summary = generate_summary("profit_loss", profit_loss_data)
+  cash_flow_summary = generate_summary("cash_flow", cash_flow_data)
+
+  st.subheader("Balance Sheet Summary")
+  st.write(balance_sheet_summary)
+  create_visuals(balance_sheet_data,"Balance Sheet Data")
+
+  st.subheader("Profit Loss Summary")
+  st.write(profit_loss_summary)
+  create_visuals(profit_loss_data,"Profit & Loss Data")
+
+  st.subheader("Cash Flow Summary")
+  st.write(cash_flow_summary)
+  create_visuals(cash_flow_data,"Cash Flow Data")
