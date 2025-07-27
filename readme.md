@@ -50,20 +50,6 @@ An enterprise-grade AI-powered financial analysis platform that leverages Google
 - **Data Models**: Structured Pydantic models for consistent output format
 
 ---
-
-## Project Structure
-├── main.py # Main application with enhanced features
-├── requirements.txt # Updated dependencies including Pydantic
-├── .env.example # Environment configuration template
-├── .gitignore # Git ignore configuration
-└── project_documentation/ # Comprehensive SDLC documentation
-├── Introduction/ # Project overview and planning
-├── Design Thinking/ # Brainstorming and ideation process
-├── Literature Survey/ # Research background and methodology
-├── Project Design/ # Technical architecture and implementation
-├── Requirement Analysis/ # Functional & non-functional requirements
-└── Conclusion/ # Project outcomes and insights
-
 ## ⚙️ Installation & Setup
 
 ### **Prerequisites**
