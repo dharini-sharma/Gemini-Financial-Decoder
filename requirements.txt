@@ -1,6 +1,7 @@
-streamlit
-pandas
-matplotlib
-langchain
-google-generativeai
-langchain_google_genai
+streamlit>=1.28.0
+pandas>=1.5.0
+langchain>=0.0.350
+langchain-google-genai>=1.0.0
+google-generativeai>=0.3.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
