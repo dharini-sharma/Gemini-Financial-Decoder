@@ -50,8 +50,3 @@ An enterprise-grade AI-powered financial analysis platform that leverages Google
 - **Data Models**: Structured Pydantic models for consistent output format
 
 ---
-## ⚙️ Installation & Setup
-
-### **Prerequisites**
-- Python 3.8 or higher
-- Google Gemini API key
