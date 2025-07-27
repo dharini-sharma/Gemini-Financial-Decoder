@@ -17,27 +17,52 @@ model = genai.list_models()
 for model in model:
     print(model)
 
-llm = GoogleGenerativeAI(model="models/gemini-1.5-pro-latest", google_api_key=api_key, temperature=1.0)
+llm = GoogleGenerativeAI(model="models/gemini-1.5-flash", google_api_key=api_key, temperature=1.0)
 
 prompt_templates = {
     "balance_sheet": PromptTemplate(    
         input_variables=["balance_sheet_data"],
-        template="""Given the balance sheet data: {balance_sheet_data},
-provide a clear and concise summary highlighting key financial metrics and insights.""" 
+        template="""Analyze this balance sheet data: {balance_sheet_data}
+        
+        Calculate and provide:
+        1. Key liquidity ratios (current ratio, quick ratio)
+        2. Debt-to-equity ratio
+        3. Working capital analysis
+        4. Asset composition insights
+        5. Financial health assessment with specific recommendations"""
     ),
 
     "profit_loss": PromptTemplate(
         input_variables=["profit_loss_data"],
-        template="""Given the profit and loss statement data: {profit_loss_data},
-provide a clear and concise summary highlighting key financial metrics and insights.""" 
+        template="""Analyze this profit and loss statement data: {profit_loss_data}
+        
+        Calculate and provide:
+        1. Profitability ratios (gross margin, operating margin, net margin)
+        2. Revenue growth trends and analysis
+        3. Cost structure breakdown (COGS, operating expenses, overhead)
+        4. EBITDA and operating efficiency metrics
+        5. Year-over-year performance comparison
+        6. Expense management insights and optimization recommendations
+        7. Revenue diversification and sustainability assessment"""
     ),
 
     "cash_flow": PromptTemplate(
         input_variables=["cash_flow_data"],
-        template="""Given the cash flow statement data: {cash_flow_data},
-provide a clear and concise summary highlighting key financial metrics and insights."""
+        template="""Analyze this cash flow statement data: {cash_flow_data}
+        
+        Calculate and provide:
+        1. Operating cash flow analysis and cash conversion efficiency
+        2. Free cash flow calculation and implications
+        3. Cash flow ratios (operating cash flow to sales, cash coverage ratio)
+        4. Working capital impact on cash generation
+        5. Investment activities analysis (CapEx trends, asset acquisitions)
+        6. Financing activities breakdown (debt payments, dividend policy)
+        7. Cash burn rate and runway analysis (if applicable)
+        8. Liquidity position and cash management recommendations
+        9. Seasonal cash flow patterns and business cycle insights"""
     )
 }
+# Function to upload files using Streamlit
 
 def upload_file():
     balance_sheet = st.file_uploader("Upload Balance Sheet", type=["csv", "xlsx"])
@@ -51,9 +76,9 @@ def load_file(file):
         if file.name.endswith(".csv"):
             return pd.read_csv(file)
         elif file.name.endswith(".xlsx"):
-            return pd.read_csv(file)
-        
+            return pd.read_excel(file)  # Fix: was pd.read_csv
     return None
+
 
 #Generate Summary from Templates 
 
