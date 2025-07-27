@@ -1,0 +1,25 @@
+Account,2023-03-31,2024-03-31
+Cash and Cash Equivalents,15000,18000
+Accounts Receivable,25000,27000
+Inventory,12000,14000
+Prepaid Expenses,3000,3500
+Total Current Assets,55000,62500
+"Property, Plant & Equipment",40000,42000
+Accumulated Depreciation,-8000,-9000
+Net PPE,32000,33000
+Intangible Assets,5000,6000
+Total Non-Current Assets,37000,39000
+Total Assets,92000,101500
+Accounts Payable,10000,12000
+Short-Term Debt,5000,7000
+Accrued Expenses,4000,4500
+Total Current Liabilities,19000,23500
+Long-Term Debt,25000,26000
+Deferred Tax Liabilities,3000,3200
+Total Non-Current Liabilities,28000,29200
+Total Liabilities,47000,52700
+Common Stock,20000,20000
+Retained Earnings,25000,28800
+Other Equity,0,0
+Total Equity,45000,48800
+Total Liabilities and Equity,92000,101500
